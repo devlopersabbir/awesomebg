@@ -2,7 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Github, Copy, Eye, Code2, Zap } from "lucide-react";
+import { ArrowRight, Copy, Eye, Code2, Zap, Pencil } from "lucide-react";
+import Link from "next/link";
 
 type Props = {
   theme: "light" | "dark";
@@ -161,23 +162,19 @@ export default function Hero({ theme }: Props) {
 
         {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4 sm:px-0">
-          <Button
-            size="lg"
-            className={`cursor-pointer gap-2 px-4 sm:px-8 py-3 text-sm sm:text-base font-medium shadow-lg transition-all duration-300 flex-1 sm:flex-none ${
-              isPatternDark
-                ? "bg-white text-black hover:bg-gray-100"
-                : "bg-slate-950 hover:bg-slate-900 dark:bg-white dark:text-black dark:hover:bg-gray-100"
-            }`}
-            onClick={() => {
-              window.open(
-                "https://github.com/devlopersabbir/awesomebg#contributing",
-                "_blank"
-              );
-            }}
-          >
-            <Github className="h-4 sm:h-5 w-4 sm:w-5" />
-            Contribute Here!
-          </Button>
+          <Link href={"/create-pattern"}>
+            <Button
+              size="lg"
+              className={`cursor-pointer gap-2 px-4 sm:px-8 py-3 text-sm sm:text-base font-medium shadow-lg transition-all duration-300 flex-1 sm:flex-none ${
+                isPatternDark
+                  ? "bg-white text-black hover:bg-gray-100"
+                  : "bg-slate-950 hover:bg-slate-900 dark:bg-white dark:text-black dark:hover:bg-gray-100"
+              }`}
+            >
+              <Pencil className="h-4 sm:h-5 w-4 sm:w-5" />
+              Create Own
+            </Button>
+          </Link>
           <Button
             size="lg"
             className={`cursor-pointer gap-2 px-4 sm:px-8 py-3 text-sm sm:text-base font-medium shadow-lg transition-all duration-300 flex-1 sm:flex-none ${
